@@ -1,7 +1,27 @@
+body{
+  background-size: cover !important;
+  background: url("20200716_124940.png");
+}
+
+.background {
+  filter: blur(4px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 /**
 *** SIMPLE GRID
 *** (C) ZACH COLE 2016
 **/
+
+#secondcolcon{
+  padding-bottom: 5px
+}
+
+#firstcolcon{
+  padding-top: 5px
+}
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
 
@@ -52,11 +72,6 @@ h6 {
   font-size: 0.875rem;
 }
 
-p {
-  font-size: 1.125rem;
-  font-weight: 200;
-  line-height: 1.8;
-}
 
 .font-light {
   font-weight: 300;
@@ -78,12 +93,6 @@ p {
 
 .right {
   text-align: right;
-}
-
-.center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .justify {
@@ -243,6 +252,22 @@ p {
 
   .hidden-lm {
      display: none;
+  }
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  #firstcolcon{
+    padding-bottom: 5px
+  }
+
+  #secondcolcon{
+    padding-top: 5px
   }
 }
 

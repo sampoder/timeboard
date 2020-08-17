@@ -2,116 +2,82 @@
 <html>
 
 <head>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"> </script>
+  <link rel="shortcut icon" type="image/png" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/oncoming-bus_1f68d.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>repl.it</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<link href="simple-grid.css" rel="stylesheet" type="text/css" />
+  <title>Bus Times</title>
+
+  <meta name="title" content="Bus Time Display Singapore">
+  <meta name="description" content="See all the bus times of your closest bus stop to you in the form of a classic time display!">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://buses.sampoder.com">
+  <meta property="og:title" content="Bus Time Display Singapore">
+  <meta property="og:description" content="See all the bus times of your closest bus stop to you in the form of a classic time display!">
+  <meta property="og:image" content="https://buses.sampoder.com/card.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://buses.sampoder.com">
+  <meta property="twitter:title" content="Bus Time Display Singapore">
+  <meta property="twitter:description" content="See all the bus times of your closest bus stop to you in the form of a classic time display!">
+  <meta property="twitter:image" content="https://buses.sampoder.com/card.png">
 </head>
 
 <body>
 	<script src="script.js">
-
 	</script>
-	<div class="container" style="margin-left: 1em; margin-right: 1em">
+  <div class="background"></div>
+	<div class="container center" style="margin-left: 1em; margin-right: 1em; border-left: 24px solid white; border-right: 24px solid white;">
 		<div class="row">
-			<div class="col-6" style="background-color: white;">
+			<div class="col-6" style="background-color: white; padding: 5px 0;">
 				<div class="container">
 					<div class="row">
 						<div class="col-4-sm">
 							Bus
 						</div>
 						<div class="col-4-sm">
-							Arriving(min)
+							Arriving <span style="font-size: 10px">(min)</span>
 						</div>
 						<div class="col-4-sm">
-							Next(min)
+							Next <span style="font-size: 10px">(min)</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-6 hidden-sm" style="background-color: white;">
+			<div class="col-6 hidden-sm" style="background-color: white; padding: 5px 0;">
 				<div class="container">
 					<div class="row">
 						<div class="col-4-sm">
 							Bus
 						</div>
 						<div class="col-4-sm">
-							Arriving(min)
+							Arriving <span style="font-size: 10px">(min)</span>
 						</div>
 						<div class="col-4-sm">
-							Next(min)
+							Next <span style="font-size: 10px">(min)</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-6" id='firstcol' style="background-color: black;">
-        <div class="container">
-          <div class="col-12" style="background-color: black;">
-            <div class="container">
-              <div class="row">
-                <div class="col-4-sm">
-                  <span style="background-color: orange; padding: 0px 10px;">174</span>
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  03
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  12
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" style="background-color: black;">
-            <div class="container">
-              <div class="row">
-                <div class="col-4-sm">
-                  <span style="background-color: orange; padding: 0px 10px;">174</span>
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  03
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  12
-                </div>
-              </div>
-            </div>
-          </div>
+			<div class="col-6" style="background-color: black;" id='firstcolcon'>
+        <div class="container" id='firstcol'>
         </div>
 			</div>
-      <div class="col-6" id='secondcol' style="background-color: black;">
-        <div class="container">
-          <div class="col-12" style="background-color: black;">
-            <div class="container">
-              <div class="row">
-                <div class="col-4-sm">
-                  <span style="background-color: orange; padding: 0px 10px;">174</span>
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  03
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  12
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12" style="background-color: black;">
-            <div class="container">
-              <div class="row">
-                <div class="col-4-sm">
-                  <span style="background-color: orange; padding: 0px 10px;">174</span>
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  03
-                </div>
-                <div class="col-4-sm" style="color: orange;">
-                  12
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="col-6" style="background-color: black;" id='secondcolcon'>
+        <div class="container" id='secondcol'>
         </div>
+			</div>
+      <div class="col-6" style="background-color: white; text-align: center; padding: 5px 0; font-size: 14px;">
+				Brought to you by <strong style="color: teal;"> Sam Poder </strong>
+			</div>
+      <div class="col-6" style="background-color: white; text-align: center; padding: 5px 0; font-size: 14px;">
+				Data from <strong><span style="color: #D93B20">SBS <span style="color: #5D1E79">Transit</span></strong> & <strong><span style="color: #EC1C2D">SMRT</strong><span title="via @cheeaun's arrivelah api">*</span>
 			</div>
 		</div>
 	</div>
